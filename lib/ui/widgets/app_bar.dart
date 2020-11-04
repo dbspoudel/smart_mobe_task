@@ -53,14 +53,15 @@ Widget smartMobeTaskMainAppBar({
 PreferredSizeWidget smartMobeTaskAppBar({
   @required String title,
   String imageUrl,
-  Function onTapDrawer,
+  Function onTapBackButton,
 }) {
   return AppBar(
     backgroundColor: SmartMobeTaskColors.white,
     elevation: 0.0,
-    leading: Icon(
-      Icons.keyboard_backspace,
+    leading: IconButton(
+      icon: Icon(Icons.keyboard_backspace),
       color: SmartMobeTaskColors.grey80,
+      onPressed: () => onTapBackButton(),
     ),
     centerTitle: true,
     title: Text(
