@@ -1,0 +1,4 @@
+enum Pets{
+  DOG,
+  CAT,
+}
