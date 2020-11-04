@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_mobe_task/assets/colors.dart';
 
-Widget smartMobeTaskAppBar({
+Widget smartMobeTaskMainAppBar({
   @required String title,
   String imageUrl,
   Function onTapDrawer,
@@ -46,6 +46,29 @@ Widget smartMobeTaskAppBar({
           onPressed: onTapDrawer,
         )
       ],
+    ),
+  );
+}
+
+PreferredSizeWidget smartMobeTaskAppBar({
+  @required String title,
+  String imageUrl,
+  Function onTapDrawer,
+}) {
+  return AppBar(
+    backgroundColor: SmartMobeTaskColors.white,
+    elevation: 0.0,
+    leading: Icon(
+      Icons.keyboard_backspace,
+      color: SmartMobeTaskColors.grey80,
+    ),
+    centerTitle: true,
+    title: Text(
+      '$title',
+      style: TextStyle(
+        fontSize: 14,
+        color: SmartMobeTaskColors.blackGrey,
+      ),
     ),
   );
 }
