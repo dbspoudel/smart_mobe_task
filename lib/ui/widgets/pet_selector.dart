@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:smart_mobe_task/assets/colors.dart';
 import 'package:smart_mobe_task/assets/text_style.dart';
+import 'package:smart_mobe_task/data/constant.dart';
 
 class PetSecectorDataModel {
-  final String label;
+  final Pets label;
   final Widget icon;
 
   PetSecectorDataModel({
@@ -34,6 +35,17 @@ class _PetSelectorState extends State<PetSelector> {
       selectedItem = newValue;
     });
     widget.onChangeEventHandler(newValue);
+  }
+
+  petsToTitle(Pets pets) {
+    switch (pets) {
+      case Pets.CAT:
+        return "Cat";
+      case Pets.DOG:
+        return "Dog";
+      default:
+        return "Unknown";
+    }
   }
 
   Widget _buildSingleItem(String title, Widget icon) {
@@ -88,7 +100,7 @@ class _PetSelectorState extends State<PetSelector> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: widget.optionList
-          .map((e) => _buildSingleItem(e.label, e.icon))
+          .map((e) => _buildSingleItem(petsToTitle(e.label), e.icon))
           .toList(),
     );
   }
